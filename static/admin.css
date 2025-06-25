@@ -1,0 +1,44 @@
+body {
+    font-family: sans-serif;
+    background: #111;
+    color: #fff;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.login-container, .dashboard {
+    background: #1e1e1e;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #000;
+    width: 300px;
+    text-align: center;
+}
+
+input, button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 6px;
+}
+
+input {
+    background: #2e2e2e;
+    color: white;
+}
+
+button {
+    background: #0f62fe;
+    color: white;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+    margin-bottom: 10px;
+}
