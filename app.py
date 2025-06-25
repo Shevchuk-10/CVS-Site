@@ -35,8 +35,8 @@ def dima_html(request: Request):
 
 
 @app.post("/login")
-def login_post(request: Request, username: str = Form(...), password: str = Form(...)):
-    if username == username and password == password:
+def login_post(request: Request, login_username: str = Form(...), login_password: str = Form(...)):
+    if login_username == username and login_password == password:
         return RedirectResponse("/dashboard", status_code=302)
     return templates.TemplateResponse("login.html", {"request": request, "error": "Неверный логин или пароль"})
 
