@@ -3,9 +3,9 @@ from fastapi.templating import Jinja2Templates
 from starlette.responses import RedirectResponse
 from starlette.staticfiles import StaticFiles
 from config import username, password
+from token_manager import create_token, verify_token
 
 app = FastAPI()
-
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
@@ -20,32 +20,42 @@ def read_root(request: Request):
 
 @app.get('/andrew', name='andrew')
 def andrew_html(request: Request):
-    return templates.TemplateResponse(
-        name='andrew.html',
-        context={'request': request}
-    )
+    return templates.TemplateResponse("andrew.html", {"request": request})
 
 
 @app.get('/dima', name='dima')
 def dima_html(request: Request):
-    return templates.TemplateResponse(
-        name='dima.html',
-        context={'request': request}
-    )
-
-
-@app.post("/login")
-def login_post(request: Request, login_username: str = Form(...), login_password: str = Form(...)):
-    if login_username == username and login_password == password:
-        return RedirectResponse("/dashboard", status_code=302)
-    return templates.TemplateResponse("login.html", {"request": request, "error": "Неверный логин или пароль"})
-
-
-@app.get("/dashboard")
-def dashboard(request: Request):
-    return templates.TemplateResponse("dashboard.html", {"request": request})
+    return templates.TemplateResponse("dima.html", {"request": request})
 
 
 @app.get("/admin")
 def login_get(request: Request):
     return templates.TemplateResponse("login.html", {"request": request})
+
+
+@app.post("/login")
+def login_post(request: Request, login_username: str = Form(...), login_password: str = Form(...)):
+    if login_username == username and login_password == password:
+        token = create_token(login_username)
+        response = RedirectResponse("/dashboard", status_code=302)
+        response.set_cookie("auth_token", token, httponly=True)
+        return response
+    return templates.TemplateResponse("login.html", {"request": request, "error": "Неверный логин или пароль"})
+
+
+@app.get("/dashboard")
+def dashboard(request: Request):
+    token = request.cookies.get("auth_token")
+    user = verify_token(token) if token else None
+
+    if not user:
+        return RedirectResponse("/admin", status_code=302)
+
+    return templates.TemplateResponse("dashboard.html", {"request": request, "user": user})
+
+
+@app.get("/logout")
+def logout():
+    response = RedirectResponse("/", status_code=302)
+    response.delete_cookie("auth_token")
+    return response
