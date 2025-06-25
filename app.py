@@ -25,7 +25,8 @@ def andrew_html(request: Request):
 
 
 @app.get('/dima', name='dima')
-def dima_html():
+def dima_html(request: Request):
     return templates.TemplateResponse(
-        name='dima.html'
+        name='dima.html',
+        context={'request': request}
     )
