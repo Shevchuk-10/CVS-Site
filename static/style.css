@@ -148,14 +148,14 @@ header .container .button:hover .circle {
 }
 
 .main .container .text .title {
-    font-size: 2rem;
+    font-size: 3rem;
     color: #ffffff;
     display: flex;
 }
 
 .main .container .text .subtitle {
   white-space: nowrap;
-  font-size: 3rem;
+  font-size: 5rem;
   font-weight: 600;
   color: #ffffff;
 }
