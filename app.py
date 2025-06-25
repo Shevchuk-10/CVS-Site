@@ -2,6 +2,7 @@ from fastapi import FastAPI, Request, Form
 from fastapi.templating import Jinja2Templates
 from starlette.responses import RedirectResponse
 from starlette.staticfiles import StaticFiles
+from config import username, password
 
 app = FastAPI()
 
@@ -35,7 +36,7 @@ def dima_html(request: Request):
 
 @app.post("/login")
 def login_post(request: Request, username: str = Form(...), password: str = Form(...)):
-    if username == "admin" and password == "1234":
+    if username == username and password == password:
         return RedirectResponse("/dashboard", status_code=302)
     return templates.TemplateResponse("login.html", {"request": request, "error": "Неверный логин или пароль"})
 
