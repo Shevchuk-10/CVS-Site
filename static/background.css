@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Huninn", sans-serif;
+    color: white;
+    /* Убедимся, что body занимает всю высоту и является относительным для фона */
+    min-height: 100vh; 
+    position: relative;
+    overflow: hidden; /* Скрываем части анимированных элементов, выходящие за экран */
+    background-color: #1c1b1b; /* Базовый темный фон */
+}
+
+/* --- КОД ДЛЯ АНИМИРОВАННОГО ФОНА НАЧИНАЕТСЯ ЗДЕСЬ --- */
+/* Контейнер для анимированных фоновых элементов */
+.background-blur-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Помещаем фон под основной контент */
+    filter: blur(70px); /* Сильно размываем все элементы внутри этого контейнера */
+    /* background-color: #1c1b1b; /* Можно использовать для дополнительного контроля цвета */
+}
+
+/* Общие стили для анимированных цветных пятен */
+.blur-blob {
+    position: absolute;
+    border-radius: 50%; /* Делаем элементы круглыми/овальными */
+    opacity: 0.6; /* Делаем полупрозрачными */
+    animation-iteration-count: infinite; /* Бесконечная анимация */
+    animation-timing-function: ease-in-out; /* Плавное начало и конец */
+}
+
+/* Анимации для каждого пятна */
+.blur-blob.one {
+    width: 450px;
+    height: 450px;
+    background: white;
+    top: 5%;
+    left: 5%;
+    animation: moveBlobOne 22s infinite ease-in-out alternate;
+}
+
+.blur-blob.two {
+    width: 500px;
+    height: 500px;
+    background: white;
+    bottom: 10%;
+    right: 5%;
+    animation: moveBlobTwo 28s infinite ease-in-out alternate-reverse;
+}
+
+.blur-blob.three {
+    width: 380px;
+    height: 380px;
+    background: white;
+    top: 30%;
+    left: 40%;
+    animation: moveBlobThree 20s infinite linear;
+}
+
+/* Keyframes для анимаций */
+@keyframes moveBlobOne {
+    0% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(40vw, 15vh) scale(1.1); }
+    50% { transform: translate(10vw, 70vh) scale(0.9); }
+    75% { transform: translate(60vw, 25vh) scale(1.2); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes moveBlobTwo {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    35% { transform: translate(-25vw, -10vh) rotate(90deg); }
+    65% { transform: translate(-50vw, 15vh) rotate(180deg); }
+    100% { transform: translate(0, 0) rotate(360deg); }
+}
+
+@keyframes moveBlobThree {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(-80vw, 40vh) rotate(360deg); }
+}

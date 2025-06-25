@@ -12,5 +12,20 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 def read_root(request: Request):
     return templates.TemplateResponse(
         name="index.html",
-        context={"request": request}
+        context={"request": request, 'dima': 'dima.html', 'andrew': 'andrew.html'}
+    )
+
+
+@app.get('/andrew', name='andrew')
+def andrew_html(request: Request):
+    return templates.TemplateResponse(
+        name='andrew.html',
+        context={'request': request}
+    )
+
+
+@app.get('/dima', name='dima')
+def dima_html():
+    return templates.TemplateResponse(
+        name='dima.html'
     )
