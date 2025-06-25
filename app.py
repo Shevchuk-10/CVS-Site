@@ -4,6 +4,7 @@ from starlette.responses import RedirectResponse
 from starlette.staticfiles import StaticFiles
 from config import username, password
 
+
 app = FastAPI()
 
 templates = Jinja2Templates(directory="templates")
