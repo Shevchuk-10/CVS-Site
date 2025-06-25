@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Huninn&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.main {
+    width: 100vw;
+    height: 100vh;
+    background: #1c1b1b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main .container {
+    width: 70vw;
+    height: 50vh;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;    
+}
+
+.main .container .text {
+    text-align: left;
+    font-family: "Huninn", sans-serif;
+}
+
+.main .container .text .title {
+    font-size: 3rem;
+    color: #ffffff;
+    display: flex;
+}
+
+.main .container .text .icon {
+    margin-left: 1vw;
+    transition: transform 0.2s ease-in-out;
+}
+
+.main .container .text .icon:hover {
+    transform: scale(1.2);
+}
+
+.main .container .text .subtitle {
+    font-size: 5rem;
+    color: #ffffff;
+}
