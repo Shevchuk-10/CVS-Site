@@ -20,7 +20,7 @@ app.add_middleware(
 )
 
 
-@app.get('/')
+@app.get('/', name='index')
 def read_root(request: Request):
     return templates.TemplateResponse(
         name="index.html",
