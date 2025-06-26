@@ -54,12 +54,15 @@ def login_post(request: Request, login_username: str = Form(...), login_password
 
 
 @app.get("/dashboard")
-def dashboard(request: Request):
+async def dashboard(request: Request):
     token = request.cookies.get("auth_token")
+    print(f"Token from cookie: {token}")
+
     user = verify_token(token) if token else None
+    print(f"User from token: {user}")
 
     if not user:
-        return RedirectResponse("/admin", status_code=302)
+        return RedirectResponse("/admin", status_code=303)
 
     return templates.TemplateResponse("dashboard.html", {"request": request, "user": user})
 
