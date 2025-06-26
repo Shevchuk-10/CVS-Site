@@ -178,6 +178,10 @@ header .container .button:hover .circle {
     z-index: 1;
 }
 
+.main .container img:hover {
+    scale: 1.05; /* Увеличение при наведении */
+}
+
 .main .container .container { /* Вложенный контейнер с таким же именем - может быть запутанно */
     width: 20vw;
     height: 100%;
