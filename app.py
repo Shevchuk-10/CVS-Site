@@ -4,10 +4,20 @@ from starlette.responses import RedirectResponse
 from starlette.staticfiles import StaticFiles
 from config import username, password
 from token_manager import create_token, verify_token
+from fastapi.middleware.cors import CORSMiddleware
+from routers import posts, auth
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Заміни на фронтовий домен
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get('/')
@@ -59,3 +69,7 @@ def logout():
     response = RedirectResponse("/", status_code=302)
     response.delete_cookie("auth_token")
     return response
+
+
+app.include_router(posts.router)
+app.include_router(auth.router)
