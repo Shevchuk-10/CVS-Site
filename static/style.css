@@ -103,6 +103,26 @@ header .container .button:hover .arr-2 {
   left: 16px;
 }
 
+header .container .dima {
+  transform: translateY(-20vh);
+  animation: slideInFromUP 1.5s ease-out forwards; /* Анимация с задержкой */
+}
+
+header .container .andrew {
+  transform: translateY(-20vh);
+  animation: slideInFromUP 1.5s ease-out forwards; /* Анимация с задержкой */
+}
+
+@keyframes slideInFromUP {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(+0vh);
+    opacity: 1;
+  }
+}
+
 header .container .button:hover .arr-22 {
   right: 16px;
 }
@@ -155,6 +175,7 @@ header .container .button:hover .circle {
     object-fit: cover;
     border-radius: 20px;
     margin: 20vw; /* Это очень большой маргин, он может сильно сдвигать элементы. Проверьте, нужен ли он такой большой. */
+    z-index: 1;
 }
 
 .main .container .container { /* Вложенный контейнер с таким же именем - может быть запутанно */
@@ -172,9 +193,16 @@ header .container .button:hover .circle {
 
 }
 
+.main .container .text:hover {
+  scale: 1.05; /* Увеличение при наведении */
+  cursor: default;
+}
+
 .main .container .text .title {
     font-size: 3rem;
     display: flex;
+    transform: translateX(-100vw);
+    animation: slideInFromLeft 1.5s ease-out forwards; /* Анимация с задержкой */
 }
 
 .main .container .text .subtitle {
@@ -182,6 +210,28 @@ header .container .button:hover .circle {
   font-size: 3rem;
   font-weight: 600;
   color: #000000;
+  transform: translateX(+100vw);
+  animation: slideInFromRight 1.5s ease-out forwards; /* Анимация с задержкой */
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(+0vw);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(-0vw);
+        opacity: 1;
+    }
 }
 
 .bottom {
