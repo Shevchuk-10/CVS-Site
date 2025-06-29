@@ -6,6 +6,11 @@ from config import username, password
 from token_manager import create_token, verify_token
 from fastapi.middleware.cors import CORSMiddleware
 from routers import posts, auth
+from starlette.requests import Request
+from fastapi.responses import HTMLResponse
+from starlette.exceptions import HTTPException as StarletteHTTPException
+from fastapi.exceptions import RequestValidationError
+
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
@@ -13,7 +18,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Заміни на фронтовий домен
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -56,13 +61,41 @@ def login_post(request: Request, login_username: str = Form(...), login_password
     return templates.TemplateResponse("login.html", {"request": request, "error": "Неверный логин или пароль"})
 
 
+@app.exception_handler(StarletteHTTPException)
+async def http_exception_handler(request: Request, exc: StarletteHTTPException):
+    return templates.TemplateResponse(
+        "404.html",
+        {
+            "request": request,
+            "code_error": exc.status_code,
+            "message": exc.detail if exc.detail else "Щось пішло не так"
+        },
+        status_code=exc.status_code
+    )
+
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request: Request, exc: RequestValidationError):
+    return templates.TemplateResponse(
+        "404.html",
+        {
+            "request": request,
+            "code_error": 422,
+            "message": "Помилка валідації"
+        },
+        status_code=422
+    )
+
+
 @app.get("/dashboard")
-def dashboard(request: Request):
+async def dashboard(request: Request):
     token = request.cookies.get("auth_token")
+    print(f"Token from cookie: {token}")
+
     user = verify_token(token) if token else None
+    print(f"User from token: {user}")
 
     if not user:
-        return RedirectResponse("/admin", status_code=302)
+        return RedirectResponse("/admin", status_code=303)
 
     return templates.TemplateResponse("dashboard.html", {"request": request, "user": user})
 
