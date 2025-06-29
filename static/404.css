@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.app {
+    position: relative;
+    height: 100svh;
+    background: #050505;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    font-size: 18px;
+}
+
+.img {
+    position: absolute;
+    display: inline-block;
+    bottom: -110vh;
+    width: 100vw;
+    margin: 0 auto;
+    animation: catAnim 1.5s ease forwards;
+    pointer-events: none;
+}
+
+.error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 39rem;
+    font-weight: 900;
+    animation: errorAnim 1.5s ease forwards;
+    pointer-events: none;
+}
+
+.okak {
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 900;
+    font-size: 115px;
+    pointer-events: none;
+}
+
+@keyframes errorAnim {
+    0% {
+        transform: translate(-50%, 900px);
+    }
+    100% {
+        transform: translate(-50%, -50%);
+    }
+}
+
+.img img {
+    scale: 0.4;
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+@keyframes catAnim {
+    0% {
+        translate: 0 50%;
+    }
+    100% {
+        translate: 0 0;
+    }
+}

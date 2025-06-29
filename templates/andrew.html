@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>Site</title>
+    <title>Andrew</title>
     <link rel="stylesheet" href="/static/background.css">
+    <link rel="stylesheet" href="/static/user.css">
     </head>
     <body>
     <div class="background-blur-container">
@@ -10,5 +11,11 @@
         <div class="blur-blob two"></div>
         <div class="blur-blob three"></div>
     </div>
+    <header>
+        <a href="{{ url_for('index') }}" class="back-btn">
+            <span class="text">Back</span>
+            <span class="circle"></span>
+        </a>
+    </header>
     </body>
 </html>

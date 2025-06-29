@@ -22,7 +22,7 @@ app.add_middleware(
 )
 
 
-@app.get('/')
+@app.get('/', name='index')
 def read_root(request: Request):
     return templates.TemplateResponse(
         name="index.html",
@@ -39,6 +39,9 @@ def andrew_html(request: Request):
 def dima_html(request: Request):
     return templates.TemplateResponse("dima.html", {"request": request})
 
+@app.get('/404', name='404')
+def not_found(request: Request):
+    return templates.TemplateResponse("404.html", {"request": request, "code_error": "404"})
 
 @app.get("/admin")
 def login_get(request: Request):
