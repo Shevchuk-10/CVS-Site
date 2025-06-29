@@ -1,21 +1,60 @@
 <!DOCTYPE html>
 <html>
-    <head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dima</title>
-    <link rel="stylesheet" href="/static/background.css">
     <link rel="stylesheet" href="/static/user.css">
-    </head>
-    <body>
-    <div class="background-blur-container">
-        <div class="blur-blob one"></div>
-        <div class="blur-blob two"></div>
-        <div class="blur-blob three"></div>
-    </div>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bakbak One:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inria Sans:wght@700&display=swap" />
+</head>
+
+<body>
     <header>
-        <a href="{{ url_for('index') }}" class="back-btn">
-            <span class="text">Back</span>
-            <span class="circle"></span>
+        <div class="title">Dima Luts</div>
+        <a href="#hire-me-parent" class="hire-me-parent">
+            <b class="hire-me">Hire Me</b>
+            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"
+                class="hireme-svg">
+                <g clip-path="url(#clip0_31_974)">
+                    <mask id="mask0_31_974" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0"
+                        width="24" height="25">
+                        <path d="M24 0.5H0V24.5H24V0.5Z" fill="white" />
+                    </mask>
+                    <g mask="url(#mask0_31_974)">
+                        <path
+                            d="M19.4999 13.072L11.9999 20.5L4.49982 13.072C4.00512 12.5906 3.61546 12.012 3.35536 11.3726C3.09527 10.7333 2.97038 10.0469 2.98855 9.35693C3.00673 8.66691 3.16758 7.98813 3.46097 7.36333C3.75437 6.73853 4.17395 6.18125 4.6933 5.72657C5.21265 5.2719 5.82052 4.92968 6.47863 4.72147C7.13673 4.51327 7.83082 4.44358 8.51719 4.5168C9.20355 4.59001 9.86732 4.80455 10.4667 5.1469C11.0661 5.48925 11.5881 5.95199 11.9999 6.50599C12.4134 5.95602 12.936 5.49731 13.535 5.1586C14.1339 4.81988 14.7964 4.60844 15.4808 4.53751C16.1652 4.46658 16.8569 4.53769 17.5126 4.74639C18.1683 4.95508 18.7739 5.29687 19.2914 5.75036C19.8089 6.20385 20.2273 6.75928 20.5203 7.38189C20.8133 8.00449 20.9746 8.68088 20.9942 9.3687C21.0137 10.0565 20.8911 10.741 20.634 11.3792C20.3769 12.0175 19.9908 12.5958 19.4999 13.078"
+                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M11.9999 6.5L8.70685 9.793C8.51938 9.98053 8.41406 10.2348 8.41406 10.5C8.41406 10.7652 8.51938 11.0195 8.70685 11.207L9.24985 11.75C9.93985 12.44 11.0599 12.44 11.7499 11.75L12.7499 10.75C13.3466 10.1533 14.156 9.81803 14.9999 9.81803C15.8438 9.81803 16.6531 10.1533 17.2499 10.75L19.4999 13"
+                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M12.5 16L14.5 18" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M15 13.5L17 15.5" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </g>
+                </g>
+                <defs>
+                    <clipPath id="clip0_31_974">
+                        <rect width="24" height="24" fill="white" transform="translate(0 0.5)" />
+                    </clipPath>
+                </defs>
+            </svg>
+
         </a>
+        <button class="open-menu" onclick="toggleMenu(this)">
+            <span class="icon burger">☰</span>
+            <span class="icon close">✕</span>
+        </button>
     </header>
-    </body>
+    <nav class="side-menu" id="mobileMenu">
+        <a href="#about">Обо мне</a>
+        <a href="#projects">Проекты</a>
+        <a href="#contact">Контакты</a>
+    </nav>
+</body>
+
+<script src="/static/user.js"></script>
+
 </html>
