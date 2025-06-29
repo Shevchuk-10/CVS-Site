@@ -71,7 +71,7 @@ header .open-menu.active .close {
   position: fixed;
   top: 0;
   left: -300px;
-  width: 260px;
+  width: 170px;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.95);
   display: flex;
