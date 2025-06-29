@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#121212">
-    
+
     <title>Dima</title>
     <link rel="stylesheet" href="/static/user.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bakbak One:wght@400&display=swap" />
@@ -46,11 +46,12 @@
             </svg>
 
         </a>
-        <button class="open-menu" onclick="toggleMenu(this)">
+        <button class="open-menu" id="open-menu" onclick="toggleMenu(this)">
             <span class="icon burger">☰</span>
             <span class="icon close">✕</span>
         </button>
     </header>
+    <div id="overlay" class="overlay" onclick="closeMenu()"></div>
     <nav class="side-menu" id="mobileMenu">
         <a href="#about">Обо мне</a>
         <a href="#projects">Проекты</a>
