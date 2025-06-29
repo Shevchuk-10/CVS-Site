@@ -42,9 +42,11 @@ def andrew_html(request: Request):
 def dima_html(request: Request):
     return templates.TemplateResponse("dima.html", {"request": request})
 
+
 @app.get('/404', name='404')
 def not_found(request: Request):
     return templates.TemplateResponse("404.html", {"request": request, "code_error": "404"})
+
 
 @app.get("/admin")
 def login_get(request: Request):
@@ -73,6 +75,7 @@ async def http_exception_handler(request: Request, exc: StarletteHTTPException):
         status_code=exc.status_code
     )
 
+
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exc: RequestValidationError):
     return templates.TemplateResponse(
@@ -85,14 +88,10 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
         status_code=422
     )
 
-
 @app.get("/dashboard")
 async def dashboard(request: Request):
     token = request.cookies.get("auth_token")
-    print(f"Token from cookie: {token}")
-
     user = verify_token(token) if token else None
-    print(f"User from token: {user}")
 
     if not user:
         return RedirectResponse("/admin", status_code=303)
