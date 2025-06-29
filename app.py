@@ -6,6 +6,8 @@ from config import username, password
 from token_manager import create_token, verify_token
 from fastapi.middleware.cors import CORSMiddleware
 from routers import posts, auth
+from fastapi.exceptions import RequestValidationError, HTTPException as StarletteHTTPException
+from starlette.requests import Request
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
@@ -73,6 +75,10 @@ def logout():
     response.delete_cookie("auth_token")
     return response
 
+@app.exception_handler(StarletteHTTPException)
+async def http_exception_handler(request: Request, exc: StarletteHTTPException):
+    return templates.TemplateResponse("404.html", {"request": request, "code_error": f'{exc.status_code}'},
+                                      status_code=exc.status_code)
 
 app.include_router(posts.router)
 app.include_router(auth.router)
