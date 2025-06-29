@@ -496,3 +496,66 @@ header .hire-me-parent .hireme-svg {
   flex-shrink: 0;
   object-fit: cover;
 }
+
+.content .frame-parent {
+  margin-top: 4.222vw;
+  width: 57.222vw;
+  position: relative;
+  border-radius: 20px;
+  background-color: rgba(53, 53, 53, 0.45);
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  height: 74.222vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 35px 24px;
+  gap: 10px;
+  text-align: left;
+  font-size: 20px;
+  color: #fff;
+  font-family: IQOS;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #222;                 /* Цвет фона */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #fff;           /* Ползунок */
+  border-radius: 0;
+  border: 2px solid #161616;           /* Промежуток вокруг ползунка */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #fff;
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px; /* ← ВОТ ЭТО главное */
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+  border: none;
+  border-radius: 50%;
+  background-color: #444;
+  color: white;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
+}
+
+.scroll-top.show {
+  opacity: 1;
+  visibility: visible;
+}
