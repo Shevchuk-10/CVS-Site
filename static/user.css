@@ -27,11 +27,12 @@ header .open-menu {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease;
-  z-index: 1050; /* чуть ниже меню */
+  z-index: 1050;
+  /* чуть ниже меню */
 }
 
 /* Показываем оверлей */
@@ -205,7 +206,8 @@ header .hire-me-parent .hireme-svg {
   }
 
   header .hire-me-parent {
-    display: none; /* Скрываем "Hire Me" на мобилке */
+    display: none;
+    /* Скрываем "Hire Me" на мобилке */
   }
 
   header .hire-me-parent .hireme-svg {
@@ -220,4 +222,277 @@ header .hire-me-parent .hireme-svg {
     gap: 6px;
     text-align: center;
   }
+}
+
+.side-panel {
+  position: fixed;
+  margin-left: 10vw;
+  margin-top: 7.444vh;
+}
+
+.side-panel .info-menu {
+  margin-top: 3.444vh;
+  width: 17.917vw;
+  border-radius: 20px;
+  background-color: rgba(53, 53, 53, 0.45);
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 14px;
+  gap: 2px;
+  text-align: left;
+  font-size: 20px;
+  color: #7d7d7d;
+  font-family: 'Inria Sans';
+}
+
+.side-panel .info-menu .phone {
+  position: relative;
+}
+
+.side-panel .info-menu .b {
+  position: relative;
+  color: #fff;
+}
+
+.side-panel .info-menu .phone-parent {
+  align-items: stretch;
+  height: 6.667vh;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 4px;
+  box-sizing: border-box;
+  gap: 1px
+}
+
+.side-panel .buttons-menu .title {
+  width: 7.292vw;
+  position: relative;
+  display: inline-block;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.side-panel .buttons-menu .icon {
+  width: 1.771vw;
+  position: relative;
+  height: 2.667vh;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.side-panel .buttons-menu .button {
+  width: 15.104vw;
+  border-radius: 14px;
+  background-color: #fff;
+  height: 5.444vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 15px;
+  box-sizing: border-box;
+  gap: 60px;
+}
+
+.side-panel .buttons-menu .button1 {
+  width: 15.104vw;
+  border-radius: 14px;
+  background-color: #787878;
+  height: 5.444vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 15px;
+  box-sizing: border-box;
+  gap: 60px;
+}
+
+.side-panel .buttons-menu {
+  width: 17.917vw;
+  position: relative;
+  border-radius: 20px;
+  background-color: rgba(53, 53, 53, 0.45);
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 20px;
+  gap: 20px;
+  text-align: left;
+  font-size: 20px;
+  color: #000;
+  font-family: 'Inria Sans';
+}
+
+.content {
+  margin-left: 32.778vw;
+}
+
+.content .main-panel {
+  margin-top: 7.444vh;
+  width: 57.222vw;
+  height: 47.889vh;
+  position: relative;
+  border-radius: 20px;
+  background-color: rgba(53, 53, 53, 0.45);
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 24px 32px;
+  gap: 10px;
+  text-align: left;
+  font-size: 16px;
+  color: #fff;
+  font-family: 'Inria Sans';
+}
+
+.content .main-panel .ellipse-parent {
+  width: 24.236vw;
+  position: relative;
+  height: 41.667vh;
+  overflow: hidden;
+  flex-shrink: 0;
+  text-align: center;
+  font-size: 15px;
+}
+
+.content .main-panel .hi-there-wrapper {
+  position: absolute;
+  top: 30.111vh;
+  left: 18.819vw;
+  backdrop-filter: blur(8.7px);
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.67);
+  width: 7.083vw;
+  height: 3.222vh;
+  overflow: hidden;
+}
+
+.content .main-panel .download-cv-parent {
+  width: 11.944vw;
+  border-radius: 20px;
+  border-top: 1px solid #fff;
+  border-right: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  border-left: 2px solid #fff;
+  box-sizing: border-box;
+  height: 5.333vh;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 17px 38px;
+  gap: 13px;
+  font-family: Kantumruy;
+}
+
+.content .main-panel .hi-there-parent {
+  width: 27.847vw;
+  height: 41.778vh;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 13px 29px;
+  box-sizing: border-box;
+  gap: 12px;
+}
+
+.content .main-panel .frame-child {
+  position: absolute;
+  top: 5.444vh;
+  left: 2.5vw;
+  border-radius: 50%;
+  width: 277px;
+  height: 277px;
+  object-fit: cover;
+}
+
+.content .main-panel .hi-there1 {
+  position: absolute;
+  top: 0.556vh;
+  left: 0.694vw;
+  letter-spacing: 0.02em;
+  display: inline-block;
+  width: 5.694vw;
+  height: 2.222vh;
+}
+
+.content .main-panel .hi-there {
+  position: relative;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.content .main-panel .creative-web {
+  margin: 0;
+}
+
+.content .main-panel .creative-web-container {
+  width: 23.472vw;
+  position: relative;
+  font-size: 40px;
+  letter-spacing: 0.04em;
+  line-height: 108%;
+  display: inline-block;
+  font-family: Kadwa;
+  height: 9.444vh;
+  flex-shrink: 0;
+}
+
+.content .main-panel .i-am-a {
+  letter-spacing: 0.04em;
+}
+
+.content .main-panel .span {
+  letter-spacing: 0.07em;
+}
+
+.content .main-panel .i-am-a-container {
+  align-self: stretch;
+  position: relative;
+  line-height: 108%;
+  font-weight: 500;
+  font-family: Jura;
+  color: #b5b5b5;
+  display: inline-block;
+  height: 13.778vh;
+  flex-shrink: 0;
+}
+
+.content .main-panel .download-cv {
+  position: relative;
+  letter-spacing: 0.04em;
+  line-height: 108%;
+}
+
+.content .main-panel .download-svg-1-icon {
+  width: 1.25vw;
+  position: relative;
+  height: 2vh;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
 }
