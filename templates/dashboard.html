@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Админ-панель</title>
-    <link rel="stylesheet" href="/static/admin.css">
+    <link rel="stylesheet" href="/static/css/dashboard.css">
 </head>
+
 <body>
-    <div class="dashboard">
-        <h1>Добро пожаловать в админку, босс 😎</h1>
-        <p>Здесь будет твой контент.</p>
+    <div class="sidebar" id="sidebar">
+        <h2>Аккаунты</h2>
+        <div class="account active" onclick="selectAccount(this, 'Личный')">Личный</div>
+        <div class="account" onclick="selectAccount(this, 'Рабочий')">Рабочий</div>
     </div>
+    <div class="content">
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+        <div class="section">
+            <h3>Добавить пост</h3>
+            <input type="text" id="postInput" placeholder="Новый пост...">
+            <button onclick="addPost()">Добавить</button>
+            <ul id="postList"></ul>
+        </div>
+        <div class="section">
+            <h3>Добавить проект</h3>
+            <input type="text" id="projectInput" placeholder="Новый проект...">
+            <button onclick="addProject()">Добавить</button>
+            <ul id="projectList"></ul>
+        </div>
+    </div>
+    <script src="/static/scripts/dashboard.js"></script>
 </body>
+
 </html>
