@@ -371,18 +371,25 @@ header .hire-me-parent .hireme-svg {
   flex-shrink: 0;
   text-align: center;
   font-size: 15px;
+  margin-left: 5vw;
+  white-space: nowrap;
 }
 
 .content .main-panel .hi-there-wrapper {
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: left;
   top: 30.111vh;
-  left: 18.819vw;
+  left: 0.819vw;
   backdrop-filter: blur(8.7px);
   border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.67);
-  width: 7.083vw;
+  background-color: rgba(0, 0, 0, 0.452);
+  min-width: 3.083vw;
+  width: auto;
   height: 3.222vh;
   overflow: hidden;
+  filter: blur();
 }
 
 .content .main-panel .download-cv-parent {
@@ -430,12 +437,12 @@ header .hire-me-parent .hireme-svg {
 }
 
 .content .main-panel .hi-there1 {
-  position: absolute;
-  top: 0.556vh;
-  left: 0.694vw;
+  padding: 10px 10px;
   letter-spacing: 0.02em;
   display: inline-block;
-  width: 5.694vw;
+  justify-content: left;
+  align-items: center;
+  width: auto;
   height: 2.222vh;
 }
 
