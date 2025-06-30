@@ -53,3 +53,29 @@ function toggleSidebar() {
 }
 
 renderData();
+
+
+document.getElementById('post-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const data = {
+        id: form.id.value ? parseInt(form.id.value) : undefined,
+        title: form.title.value,
+        img: form.img.value,
+        content: form.content.value,
+        author: form.author.value
+    };
+
+    const method = data.id ? 'PUT' : 'POST';
+    const url = data.id ? `/posts/${data.id}` : '/posts';
+
+    const res = await fetch(url, {
+        method: method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    });
+
+    const result = await res.json();
+    alert('Успешно!');
+});

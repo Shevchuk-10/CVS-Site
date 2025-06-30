@@ -13,13 +13,23 @@
         <div class="account" onclick="selectAccount(this, 'Рабочий')">Рабочий</div>
     </div>
     <div class="content">
+        <h3>Добавить пост</h3>
+        <form action="/api/posts/add" method="post">
+            <label>ID:<br /><br /><input type="number" name="id" required></label><br />
+            <br /><label>Заголовок:<br /><br /><input type="text" name="title" required></label><br />
+            <br /><label>Картинка (URL):<br /><br /><input type="text" name="img" required></label><br />
+            <br /><label>Контент:<br /><br /><textarea name="content" required></textarea></label><br />
+            <br /><label>Автор:<br /><br /><input type="text" name="author" required></label><br />
+            <br /><label>Дата создания:<br /><br /><input type="datetime-local" name="created_at" required></label><br />
+            <br /><button type="submit">Создать пост</button>
+        </form>
         <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-        <div class="section">
+        <!-- <div class="section">
             <h3>Добавить пост</h3>
             <input type="text" id="postInput" placeholder="Новый пост...">
             <button onclick="addPost()">Добавить</button>
             <ul id="postList"></ul>
-        </div>
+        </div> -->
         <div class="section">
             <h3>Добавить проект</h3>
             <input type="text" id="projectInput" placeholder="Новый проект...">

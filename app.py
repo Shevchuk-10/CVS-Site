@@ -3,6 +3,7 @@ from fastapi.templating import Jinja2Templates
 from starlette.responses import RedirectResponse
 from starlette.staticfiles import StaticFiles
 from config import username, password
+from database import init_db
 from token_manager import create_token, verify_token
 from fastapi.middleware.cors import CORSMiddleware
 from routers import posts, auth
@@ -10,6 +11,8 @@ from routers import posts, auth
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
+
+init_db()
 
 app.add_middleware(
     CORSMiddleware,
@@ -64,7 +67,7 @@ def dashboard(request: Request):
     if not user:
         return RedirectResponse("/admin", status_code=302)
 
-    return templates.TemplateResponse("dashboard.html", {"request": request, "user": user})
+    return templates.TemplateResponse("dashboard.html", {"request": request})
 
 
 @app.get("/logout")
