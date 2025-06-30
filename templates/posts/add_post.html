@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Добавить пост</title>
+</head>
+<body>
+    <h1>Создать новый пост</h1>
+    <form action="/api/posts/add" method="post">
+        <label>ID:<br /><input type="number" name="id" required></label><br/>
+        <label>Заголовок:<br /><input type="text" name="title" required></label><br/>
+        <label>Картинка (URL):<br /><input type="text" name="img" required></label><br/>
+        <label>Контент:<br /><textarea name="content" required></textarea></label><br/>
+        <label>Автор:<br /><input type="text" name="author" required></label><br/>
+        <label>Дата создания:<br /><input type="datetime-local" name="created_at" required></label><br/>
+        <button type="submit">Создать пост</button>
+    </form>
+</body>
+</html>

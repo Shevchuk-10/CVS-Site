@@ -1,7 +1,10 @@
+from typing import List
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+from models import Post
 
-username = os.getenv('USERNAME')
-password = os.getenv('PASSWORD')
+load_dotenv(dotenv_path='.env')
+
+username = 'admin' #os.getenv('USERNAME')
+password = 'admin' #os.getenv('PASSWORD')
